@@ -46,7 +46,7 @@ export const dashboardInfo = (info) => {
         ]
       },
       {
-        version: "2.1.0 - 16 April 2026",
+        version: "2.1.0 - 23 April 2026",
         list: [
           "**New:** Complete download feature suite — email gate (lead capture), per-IP download limits, download tracking counter, access restrictions by login status and user role, and a Leads Dashboard with search, date filters, CSV export, and bulk delete.",
           "**Update:** Filename display moved to the toolbar for the standard viewer.",
