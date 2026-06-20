@@ -62,7 +62,16 @@ if ( ! class_exists( RESTController::class ) ) {
 
             // Get file path
             $data_array = get_post_meta( $document_id, 'ppv', true );
+            if ( ! is_array( $data_array ) ) {
+                $data_array = [];
+            }
             $doc_url    = isset( $data_array['doc'] ) ? $data_array['doc'] : '';
+            
+            if ( empty( $doc_url ) ) {
+                if ( get_post_type( $document_id ) === 'attachment' ) {
+                    $doc_url = wp_get_attachment_url( $document_id );
+                }
+            }
             
             if ( empty( $doc_url ) ) {
                 return new \WP_REST_Response( 'File not found', 404 );
@@ -76,10 +85,13 @@ if ( ! class_exists( RESTController::class ) ) {
                 $file_path = get_attached_file( $attachment_id );
                 $is_local  = true;
             } else {
-                $upload_dir = wp_upload_dir();
-                if ( strpos( $doc_url, $upload_dir['baseurl'] ) === 0 ) {
-                    $file_path = str_replace( $upload_dir['baseurl'], $upload_dir['basedir'], $doc_url );
-                    $is_local  = true;
+                $upload_dir  = wp_upload_dir();
+                $path_doc    = wp_parse_url( $doc_url, PHP_URL_PATH );
+                $path_upload = wp_parse_url( $upload_dir['baseurl'], PHP_URL_PATH );
+                if ( $path_doc && $path_upload && strpos( $path_doc, $path_upload ) === 0 ) {
+                    $relative_path = substr( $path_doc, strlen( $path_upload ) );
+                    $file_path     = $upload_dir['basedir'] . $relative_path;
+                    $is_local      = true;
                 }
             }
 
@@ -102,10 +114,19 @@ if ( ! class_exists( RESTController::class ) ) {
             }
 
             // Headers
+            $req_behavior    = $request->get_param( 'behavior' );
+            $req_filename    = $request->get_param( 'filename' );
+
             $custom_filename = isset( $data_array['_de_download_filename'] ) ? $data_array['_de_download_filename'] : '';
+            if ( empty( $custom_filename ) ) {
+                $custom_filename = ! empty( $req_filename ) ? sanitize_text_field( $req_filename ) : '';
+            }
             $filename        = ! empty( $custom_filename ) ? $custom_filename : basename( $file_path );
             
-            $behavior    = isset( $data_array['_de_download_behavior'] ) ? $data_array['_de_download_behavior'] : 'download';
+            $behavior    = isset( $data_array['_de_download_behavior'] ) ? $data_array['_de_download_behavior'] : '';
+            if ( empty( $behavior ) ) {
+                $behavior = ! empty( $req_behavior ) ? sanitize_text_field( $req_behavior ) : 'download';
+            }
             $disposition = ( $behavior === 'newtab' ) ? 'inline' : 'attachment';
 
             $finfo     = finfo_open( FILEINFO_MIME_TYPE );

@@ -16,8 +16,7 @@ if (!class_exists('BPLDE_Block')) {
             add_action('enqueue_block_assets', [$this, 'bplde_block_assets']);
         }
 
-        public function init()
-        {
+        public function init() {
             wp_register_script('ppv-blocks', BPLDE_PLUGIN_DIR . 'build/editor.js', array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'jquery'), BPLDE_VER, true);
 
             wp_localize_script('ppv-blocks', 'ppvBlocks', [
@@ -27,6 +26,7 @@ if (!class_exists('BPLDE_Block')) {
             ]);
 
             register_block_type(BPLDE_PLUGIN_PATH . 'build/blocks/document-embedder');
+            register_block_type(BPLDE_PLUGIN_PATH . 'build/blocks/document-embed');
 
             register_block_type('kahf-kit/kahf-banner-k27f', array(
                 'editor_script' => 'ppv-blocks',

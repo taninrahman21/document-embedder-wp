@@ -28,7 +28,7 @@ if (!class_exists('BPLDE_Metabox_Free')) {
             ));
 
             \CSF::createSection($prefix, array(
-                'title' => __('General', 'document-emberdder'),
+                'title' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3858E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="csf-metabox-svg" style="vertical-align: middle; margin-right: 8px; position: relative; top: -1px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>' . __('General', 'document-emberdder'),
                 'fields' => array(
                     [
                         'id' => 'doc',
@@ -95,18 +95,11 @@ if (!class_exists('BPLDE_Metabox_Free')) {
                         'width' => false,
                         'dependency' => ['device_preview', '==', 'mobile']
                     ],
-                    [
-                        'id' => 'showName',
-                        'type' => 'switcher',
-                        'title' => esc_html__('Display File Name at the Top', 'document-emberdder'),
-                        'desc' => 'Not available for Google Drive and Dropbox',
-                        'default' => 0
-                    ],
                     \BPLDE\Helper\Functions::bplde_pro_feature_list(array(
-                        __('Beautiful Lightbox View Overlay', 'document-emberdder'),
-                        __('Dropbox & Google Drive Cloud Picker Integration', 'document-emberdder'),
+                        __('Custom PDF Viewer Engine', 'document-emberdder'),
                         __('Professional Document Loading Icon', 'document-emberdder'),
                         __('Disable Popout to Prevent Direct File Theft', 'document-emberdder'),
+                        __('Dropbox & Google Drive Cloud Picker Integration', 'document-emberdder'),
                         __('High-Fidelity Microsoft Office Online Viewer', 'document-emberdder'),
                         __('Native Video & Image Support in Viewer', 'document-emberdder'),
                     ))
@@ -114,32 +107,59 @@ if (!class_exists('BPLDE_Metabox_Free')) {
             ));
 
             \CSF::createSection($prefix, array(
-                'title' => __('Download Management', 'document-emberdder'),
+                'title' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3858E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="csf-metabox-svg" style="vertical-align: middle; margin-right: 8px; position: relative; top: -1px;"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>' . __('Toolbar', 'document-emberdder'),
                 'fields' => array(
+                    [
+                        'id' => 'showName',
+                        'type' => 'switcher',
+                        'title' => esc_html__('Display File Name', 'document-emberdder'),
+                        'desc' => esc_html__('Enable to display the document name. Not available for Google Drive and Dropbox.', 'document-emberdder'),
+                        'default' => 0
+                    ],
                     [
                         'id' => 'download',
                         'type' => 'switcher',
                         'title' => esc_html__('Show Download Button', 'document-emberdder'),
-                        'desc' => esc_html__('Not available for Google Drive and Dropbox', 'document-emberdder'),
+                        'desc' => esc_html__('Enable to show a download button for the document. Not available for Google Drive and Dropbox.', 'document-emberdder'),
                         'default' => true
                     ],
+                    [
+                        'id' => '_de_download_position',
+                        'type' => 'select',
+                        'title' => esc_html__('Toolbar Position', 'document-emberdder'),
+                        'options' => [
+                            'toolbar' => 'Toolbar (Default)',
+                            'below' => 'Below Embed',
+                        ],
+                        'desc' => esc_html__('Choose where the toolbar appears.', 'document-emberdder'),
+                        'default' => 'toolbar',
+                    ],
+                    \BPLDE\Helper\Functions::bplde_pro_feature_list(array(
+                        __('Dark / Light / Custom Toolbar Themes', 'document-emberdder'),
+                        __('Custom Toolbar Background & Text Colors', 'document-emberdder'),
+                    ))
+                )
+            ));
+
+            \CSF::createSection($prefix, array(
+                'title' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3858E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="csf-metabox-svg" style="vertical-align: middle; margin-right: 8px; position: relative; top: -1px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>' . __('Modal Pop Up (Lightbox)', 'document-emberdder'),
+                'fields' => array(
+                    \BPLDE\Helper\Functions::bplde_pro_feature_list(array(
+                        __('Beautiful Lightbox View Overlay (Open document in modal popup)', 'document-emberdder'),
+                        __('Custom Lightbox Trigger Button (Text, Colors, and Sizes)', 'document-emberdder'),
+                    ))
+                )
+            ));
+
+            \CSF::createSection($prefix, array(
+                'title' => '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3858E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="csf-metabox-svg" style="vertical-align: middle; margin-right: 8px; position: relative; top: -1px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>' . __('Download Management', 'document-emberdder'),
+                'fields' => array(
                     [
                         'id' => 'downloadButtonText',
                         'type' => 'text',
                         'title' => esc_html__('Download Button Text', 'document-emberdder'),
                         'default' => 'Download',
-                        'dependency' => ['download', '==', 'true'],
-                    ],
-                    [
-                        'id' => '_de_download_position',
-                        'type' => 'select',
-                        'title' => esc_html__('Download Position', 'document-emberdder'),
-                        'options' => [
-                            'toolbar' => 'Toolbar (Default)',
-                            'below' => 'Below Embed',
-                        ],
-                        'default' => 'toolbar',
-                        'dependency' => ['download', '==', 'true'],
+                        'desc' => esc_html__('Specify the text for the download button.', 'document-emberdder'),
                     ],
                     [
                         'id' => '_de_download_behavior',
@@ -150,14 +170,12 @@ if (!class_exists('BPLDE_Metabox_Free')) {
                             'newtab' => 'Open in New Tab',
                         ],
                         'default' => 'download',
-                        'dependency' => ['download', '==', 'true'],
                     ],
                     [
                         'id' => '_de_download_filename',
                         'type' => 'text',
                         'title' => esc_html__('Custom Filename', 'document-emberdder'),
                         'desc' => esc_html__('Optional custom filename for the download. Note: This will not work if Download Behavior is set to "Open in New Tab".', 'document-emberdder'),
-                        'dependency' => ['download', '==', 'true'],
                     ],
                     [
                         'id' => '_de_download_show_count',
@@ -165,7 +183,6 @@ if (!class_exists('BPLDE_Metabox_Free')) {
                         'title' => esc_html__('Show Download Count', 'document-emberdder'),
                         'desc' => esc_html__('Display the total number of times this document has been downloaded.', 'document-emberdder'),
                         'default' => false,
-                        'dependency' => ['download', '==', 'true'],
                     ],
                     [
                         'id' => '_de_download_limit',
@@ -179,15 +196,13 @@ if (!class_exists('BPLDE_Metabox_Free')) {
                             '5' => '5'
                         ],
                         'default' => '0',
-                        'dependency' => ['download', '==', 'true'],
                     ],
                     \BPLDE\Helper\Functions::bplde_pro_feature_list(array(
                         __('Email Gate to Collect Leads before Downloading', 'document-emberdder'),
-                        __('Download Access Control by Login Status', 'document-emberdder'),
-                        __('Restrict Download Access to Specific User Roles', 'document-emberdder'),
+                        __('Download Access Control by Login Status / Specific Roles', 'document-emberdder'),
                         __('Dedicated Leads Dashboard & Stats Tracking', 'document-emberdder'),
                         __('One-Click Lead Data Export to CSV', 'document-emberdder'),
-                    )),
+                    ))
                 )
             ));
         }

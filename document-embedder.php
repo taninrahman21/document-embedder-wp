@@ -1,15 +1,14 @@
 <?php
 /*
- * Plugin Name: Document Embedder
+ * Plugin Name: Document Embedder – Embed PDFs, Word, Excel, and Other Files
  * Plugin URI:  http://documentembedder.com/
  * Description: Embed Any document easily in wordpress such as word, excel, powerpoint, pdf and more
- * Version:     2.1.2
+ * Version:     2.2.0
  * Author:      bPlugins
  * Author URI:  http://bplugins.com
  * License:     GPLv2 or later
  * Text Domain: document-emberdder
  * Domain Path: /languages
- * @fs_premium_only /includes/features/class-bplde-shortcode-pro.php, /includes/core/class-bplde-pro-document-embedder.php, /includes/admin/class-bplde-pro-metabox.php, /includes/admin/class-bplde-pro-settings.php, /includes/class-bplde-license-activation.php, /includes/features/class-bplde-dropbox-api.php, /includes/features/class-bplde-google-drive-api.php
  */
 
 if (!defined('ABSPATH')) {
@@ -20,7 +19,7 @@ if (function_exists('de_fs')) {
     de_fs()->set_basename(true, __FILE__);
 } else {
     /* Some Set-up */
-    define('BPLDE_VER', '2.1.2');
+    define('BPLDE_VER', '2.2.0');
     define('BPLDE_PRO_IMPORT', '1.0.0');
     define('BPLDE_PLUGIN_DIR', plugin_dir_url(__FILE__));
     define('BPLDE_PLUGIN_PATH', plugin_dir_path(__FILE__));
@@ -28,18 +27,15 @@ if (function_exists('de_fs')) {
     define('BPLDE_IMPORT', '1.0.0');
     define('BPLDE_HAS_PRO', 'document-embedder-premium/document-embedder.php' === plugin_basename(__FILE__));
 
-    if (!function_exists('de_fs')) {
-        // Create a helper function for easy SDK access.
-        // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedFunctionFound -- Freemius SDK integration function
-        function de_fs()
-        {
+    if (!function_exists('de_fs')) { 
+        function de_fs() {
             global $de_fs;
 
             if (!isset($de_fs)) {
                 // Include Freemius SDK.
                 require_once dirname(__FILE__) . '/vendor/freemius/start.php';
 
-                // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound -- Freemius SDK integration global variable
+                // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals. 
                 $de_fs = fs_dynamic_init(array(
                     'id' => '19862',
                     'slug' => 'document-emberdder',

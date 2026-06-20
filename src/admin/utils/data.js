@@ -1,8 +1,31 @@
 const slug = 'document-emberdder';
 const webSlug = 'document-embedder';
 
+export const gutenbergTabIcon = (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round'>
+        <rect x='3' y='3' width='7' height='7' rx='1' />
+        <rect x='14' y='3' width='7' height='7' rx='1' />
+        <rect x='3' y='14' width='7' height='7' rx='1' />
+        <rect x='14' y='14' width='7' height='7' rx='1' />
+    </svg>
+);
+
+export const shortcodeTabIcon = (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round'>
+        <polyline points='16 18 22 12 16 6' />
+        <polyline points='8 6 2 12 8 18' />
+    </svg>
+);
+
+export const quickEmbedTabIcon = (
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round'>
+        <path d='M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71' />
+        <path d='M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71' />
+    </svg>
+);
+
 export const dashboardInfo = (info) => {
-  const { version, isPremium, hasPro, licenseActiveNonce } = info;
+  const { version, isPremium, hasPro, adminUrl = '', licenseActiveNonce } = info;
 
   const proSuffix = isPremium ? ' Pro' : '';
 
@@ -13,6 +36,7 @@ export const dashboardInfo = (info) => {
     version,
     isPremium,
     hasPro,
+    adminUrl,
     displayOurPlugins: true,
     media: {
       logo: `https://ps.w.org/${slug}/assets/icon-128x128.png`,
@@ -35,15 +59,26 @@ export const dashboardInfo = (info) => {
     },
     licenseActiveNonce,
     changelogs: [
-
       {
-        version: "2.1.2 - 1 June 2026",
+        version: "2.2.0 - 18 June 2026",
         list: [
-          "Maintenance update."
+          "**New:** Added brand new Custom PDF.js Viewer option, enabling high-performance local rendering for PDF files.",
+          "**New:** Fully redesigned responsive document block architecture, engineered with modular layout blocks and premium modern aesthetics.",
+          "**Update:** Unified shortcode rendering engine under the block's reactive component system, optimizing memory usage and ensuring 100% style and behavior alignment.",
+          "**Update:** Restructured admin dashboard and metadata options into intuitive, clean functional categories for a seamless management experience.",
+          "**Improved:** Automated cloud integration workflows with adaptive viewer modes (Default vs Custom PDF) based on document file types and origin.",
+          "**Improved:** Cleaned up deprecated PHP functions and decoupled legacy controller layers for cleaner, safer, and faster processing."
         ]
       },
       {
-        version: "2.1.1 - 20 May 2026",
+        version: "2.1.2 - 1 June 2026",
+        list: [
+          "**Improved:** Removed legacy and unused DocumentEmbedder files to optimize codebase and performance.",
+          "**Improved:** Regenerated Composer autoloader files to remove obsolete class definitions."
+        ]
+      },
+      {
+        version: "2.1.1 - 23 May 2026",
         list: [
           "**Improved:** Refactored the entire plugin codebase for better organization and maintainability.",
           "**Improved:** Removed unused code and optimized plugin structure for cleaner performance.",
@@ -52,7 +87,7 @@ export const dashboardInfo = (info) => {
         ]
       },
       {
-        version: "2.1.0 - 23 April 2026",
+        version: "2.1.0 - 16 April 2026",
         list: [
           "**New:** Complete download feature suite — email gate (lead capture), per-IP download limits, download tracking counter, access restrictions by login status and user role, and a Leads Dashboard with search, date filters, CSV export, and bulk delete.",
           "**Update:** Filename display moved to the toolbar for the standard viewer.",
@@ -157,18 +192,16 @@ export const dashboardInfo = (info) => {
       },
     ],
     proFeatures: [
-      "Lead Capture (Email Gate): Turn docs into lead magnets",
-      "Advanced Download Control: Roles and IP limits",
-      "Dropbox & Google Drive: Direct cloud integration",
-      "Beautiful Lightbox View: Open docs in a premium popup",
-      "Document Loading Icon: Professional loading experience",
-      "Disable Popout: Keep visitors on your site longer",
-      "Unlimited Library: Create massive doc collections",
-      "Priority Support: Expert help whenever you need it"
+      "Advanced Custom PDF Viewer Engine",
+      "Custom Toolbar Themes & Color Customizer",
+      "Download access control & restrictions",
+      "Secure email gate for PDF downloads",
+      "Premium customer support",
+      "Fluid & fast document rendering"
     ],
     startButton: {
       label: 'Start Now',
-      url: `wp-admin/post-new.php?post_type=ppt_viewer`,
+      url: `${adminUrl}post-new.php?post_type=ppt_viewer`,
     }
   }
 }
@@ -252,3 +285,86 @@ export const pricingInfo = {
     selected: 3, // choose from licenses item
   }
 }
+
+export const welcomeInfo = (adminUrl) => ({
+  keywords: ['PDF Embedder', 'Excel Viewer', 'Word Embedder', 'Gutenberg Block', 'Shortcode', 'Document Library'],
+  keywordsLabel: 'Features',
+  gettingStarted: {
+    tabs: [
+      {
+        key: 'gutenberg',
+        label: 'Gutenberg',
+        icon: gutenbergTabIcon,
+        steps: [
+          {
+            num: 1,
+            title: 'Insert the Block',
+            body: 'Click <strong>+</strong> in the Gutenberg editor and search for <strong>Document Embed</strong>.',
+            link: { url: `${adminUrl}post-new.php`, label: 'Open Editor' }
+          },
+          {
+            num: 2,
+            title: 'Select File',
+            body: 'Choose an existing document from your Media Library or upload a new one inside the block.'
+          },
+          {
+            num: 3,
+            title: 'Publish & Preview',
+            body: 'Configure options, viewer modes, download settings, and dimensions in the block sidebar, then hit <strong>Publish</strong>.'
+          }
+        ]
+      },
+      {
+        key: 'shortcode',
+        label: 'Shortcode',
+        icon: shortcodeTabIcon,
+        steps: [
+          {
+            num: 1,
+            title: 'Create Document',
+            body: 'Go to <strong>Document Embedder › Add New</strong> to create a new Document post.',
+            link: { url: `${adminUrl}post-new.php?post_type=ppt_viewer`, label: 'Add New' }
+          },
+          {
+            num: 2,
+            title: 'Upload & Save',
+            body: 'Upload your file, select viewer type (Default, Custom PDF, Google Drive etc.), configure options, and click <strong>Publish</strong>.'
+          },
+          {
+            num: 3,
+            title: 'Copy Shortcode',
+            body: 'Copy the generated shortcode like <code>[doc id="POST_ID"]</code> from the list or metabox sidebar.'
+          },
+          {
+            num: 4,
+            title: 'Paste Anywhere',
+            body: 'Paste the copied shortcode into any page, post, widget, or layout.'
+          }
+        ]
+      },
+      {
+        key: 'library',
+        label: 'Document Library',
+        icon: quickEmbedTabIcon,
+        steps: [
+          {
+            num: 1,
+            title: 'Create Library',
+            body: 'Go to <strong>Document Embedder › Add New Library</strong> to create a new document library collection.',
+            link: { url: `${adminUrl}post-new.php?post_type=document_library`, label: 'Add Library' }
+          },
+          {
+            num: 2,
+            title: 'Add Documents',
+            body: 'Add the desired documents to your library, configure column layouts, filter panels, and search tools, and click <strong>Publish</strong>.'
+          },
+          {
+            num: 3,
+            title: 'Deploy Library',
+            body: 'Copy the library shortcode like <code>[document_library id="POST_ID"]</code> and paste it into any page.'
+          }
+        ]
+      }
+    ]
+  }
+});

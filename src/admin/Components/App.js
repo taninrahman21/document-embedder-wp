@@ -8,17 +8,17 @@ import OurPlugins from '../../../../bpl-tools/Admin/OurPlugins';
 
 import Layout from './Layout';
 import Welcome from './Welcome';
-import { demoInfo, pricingInfo } from '../utils/data';
+import { demoInfo, pricingInfo, welcomeInfo } from '../utils/data';
 
 const App = (props) => {
-  const { isPremium, hasPro } = props;
+  const { isPremium, hasPro, adminUrl } = props;
 
   return <Router>
     <Routes>
       <Route path='/' element={<Layout {...props} />}>
-        <Route index element={<Welcome {...props} />} />
+        <Route index element={<Welcome {...props} {...welcomeInfo(adminUrl)} />} />
 
-        <Route path='welcome' element={<Welcome {...props} />} />
+        <Route path='welcome' element={<Welcome {...props} {...welcomeInfo(adminUrl)} />} />
 
         <Route path='demos' element={<Demos demoInfo={demoInfo} {...props} />} />
 

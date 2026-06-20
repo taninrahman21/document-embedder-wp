@@ -10,8 +10,7 @@ if (!defined('ABSPATH')) {
 }
 
 if (!class_exists('BPLDE_Document_Embedder')) {
-    class BPLDE_Document_Embedder
-    {
+    class BPLDE_Document_Embedder {
 
         private static $_instance = null;
 
@@ -23,8 +22,7 @@ if (!class_exists('BPLDE_Document_Embedder')) {
             return self::$_instance;
         }
 
-        public function __construct()
-        {
+        public function __construct() {
             add_action('plugins_loaded', [$this, 'load_dependencies']);
             add_action('admin_init', [$this, 'assign_file_type_to_all']);
             add_action('save_post_ppt_viewer', [$this, 'sync_post_file_type'], 10, 2);
@@ -136,8 +134,7 @@ if (!class_exists('BPLDE_Document_Embedder')) {
             \BPLDE\Model\AJAXCall::instance()->de_track_download();
         }
 
-        public function add_stats_metabox()
-        {
+        public function add_stats_metabox() {
             add_meta_box(
                 'ppv_download_stats',
                 'Download Stats',

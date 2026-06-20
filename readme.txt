@@ -3,7 +3,7 @@ Contributors: bplugins, abuhayat, shehabulislam, taninrahman, farazi1, freemius
 Tags: document embedder, embed pdf, embed any document, pdf embedder, document library
 Requires at least: 6.5
 Tested up to: 7.0
-Stable tag: 2.1.2
+Stable tag: 2.2.0
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat/
 License: GPLv2 or later
@@ -42,7 +42,7 @@ This plugin is ideal for sharing reports, presentations, worksheets, guides, and
 
 - **Custom Download Filename:** Define the exact filename shown to users when they download the file.
 
-- **Gutenberg Block Support:** Use the **Document Embedder Block** in the WordPress Block Editor (Gutenberg) for fast and easy document placement.
+- **Gutenberg Block Support:** Use the native **Document Embed block** in the WordPress Block Editor (Gutenberg) to insert, upload, and configure documents with a real-time live preview.
 
 - **Simple Shortcode Embedding:** Prefer the Classic Editor or page builders? Use the `[embed_doc]` shortcode to place documents anywhere on your site.
 
@@ -80,6 +80,10 @@ Upgrade to [**Document Embedder Pro**](https://bplugins.com/products/document-em
 
 **What's Included in Pro:**
 
+- **Advanced Custom PDF Viewer Engine:** High-performance local PDF rendering using PDF.js.
+
+- **Custom Toolbar Themes & Color Customizer:** Style your toolbar with Dark, Light, or fully Custom colors.
+
 - **Disable Popout Option:** Prevent users from opening documents in a new window.
 
 - **Lightbox Display:** Open documents in a modal window for smoother UX.
@@ -90,22 +94,15 @@ Upgrade to [**Document Embedder Pro**](https://bplugins.com/products/document-em
 
 - **Dropbox Integration:** Access and embed files from Dropbox easily.
 
-**Download Management (Pro)**
+- **Download Access Control & Restrictions:** Limit downloads to Logged-in Users only, or restrict by specific User Roles.
 
-- **Download Tracking:** Record and display the total number of downloads per document.
+- **Secure Email Gate for PDF Downloads:** Require visitors to submit Name and Email before they can download a document. Turn any file into a lead magnet.
 
-- **Per-IP Download Limits:** Set a maximum number of downloads per unique IP address (e.g., max 3 downloads per user).
+- **Download Tracking & IP Limits:** Record total download counts and set per-IP download limits.
 
-- **Access Restrictions:** Limit downloads to Logged-in Users only, or restrict by specific User Roles.
+- **Premium Customer Support:** Priority help and expert assistance.
 
-**Lead Generation (Pro)**
-
-- **Email Gate:** Require visitors to submit their Name and Email before they can download a document. Turn any file into a lead magnet.
-
-- **Leads Dashboard:** A built-in admin interface to view and manage all captured leads, featuring:
-  - Search & Filters by date, email, or specific document
-  - Export leads list as a CSV file
-  - Bulk delete multiple leads simultaneously
+- **Fluid & Fast Document Rendering:** Optimized rendering engine for faster loading times.
 
 **Document Library Module**
 
@@ -137,16 +134,18 @@ https://youtube.com/watch?v=mUlMpuPMP5Q
 - Paste the shortcode into any post, page, or widget where you want the document to appear.
 
 
-**Gutenberg Block Support**
-Prefer the Block Editor? No problem!
+**Document Embed Block Support**
+Prefer the WordPress Block Editor? Inserting documents has never been easier:
 
-- Open the **Block Editor**.
+- Open the **Block Editor** (Gutenberg) on any post or page.
 
-- Click + and choose the **Document Embedder block** under "Common Blocks."
+- Click **+** and search for the **Document Embed** block.
 
-- Select your document and configure the viewer.
+- Upload a new document, select one from your Media Library, or input a cloud URL.
 
-- Publish and you're done!
+- Configure advanced styling, custom toolbar themes, viewer types (Default vs Custom PDF), and download permissions directly from the editor sidebar.
+
+- Publish your page to display a beautiful, responsive document preview.
 
 [**Live Demo**](https://bplugins.com/products/document-embedder/#demos) | [**Try The Pro**](https://bplugins.com/products/document-embedder/#pricing)
 
@@ -304,11 +303,19 @@ Please report security bugs found in the source code of the Document Embedder pl
 
 == Changelog ==
 
+= 2.2.0 - 18 June 2026 =
+* **New:** Added brand new Custom PDF.js Viewer option, enabling high-performance local rendering for PDF files.
+* **New:** Fully redesigned responsive document block architecture, engineered with modular layout blocks and premium modern aesthetics.
+* **Update:** Unified shortcode rendering engine under the block's reactive component system, optimizing memory usage and ensuring 100% style and behavior alignment.
+* **Update:** Restructured admin dashboard and metadata options into intuitive, clean functional categories for a seamless management experience.
+* **Improved:** Automated cloud integration workflows with adaptive viewer modes (Default vs Custom PDF) based on document file types and origin.
+* **Improved:** Cleaned up deprecated PHP functions and decoupled legacy controller layers for cleaner, safer, and faster processing.
+
 = 2.1.2 - 1 June 2026 =
-* Maintenance update.
+* **Improved:** Removed legacy and unused DocumentEmbedder files to optimize codebase and performance.
+* **Improved:** Regenerated Composer autoloader files to remove obsolete class definitions.
 
 = 2.1.1 - 23 May 2026 =
-* **Update:** Unlocked all previously gated Premium settings, making them fully functional in the Free version.
 * **Improved:** Refactored the entire plugin codebase for better organization and maintainability.
 * **Improved:** Removed unused code and optimized plugin structure for cleaner performance.
 * **Fix:** Resolved existing bugs and stability issues across the plugin.
@@ -395,34 +402,3 @@ Please report security bugs found in the source code of the Document Embedder pl
 
 = 1.0 =
 * Initial Release
-
-
-== Source Code ==
-
-You can find the source code, report bugs, and contribute to the development of this plugin on our GitHub repository:
-[**Document Embedder on GitHub**](https://github.com/bPlugins/document-embedder-wp)
-
-
-== Third-Party Libraries ==
-
-This plugin bundles the following third-party JavaScript/PHP libraries.
-
-= Codestar Framework =
-
-* **Source:** [http://codestarframework.com/](http://codestarframework.com/)
-* **GitHub:** [https://github.com/Codestar/codestar-framework](https://github.com/Codestar/codestar-framework)
-* **License:** GPLv2 or later – [https://github.com/Codestar/codestar-framework/blob/master/LICENSE.md](https://github.com/Codestar/codestar-framework/blob/master/LICENSE.md)
-* **Purpose:** Provides the options framework for the plugin's settings and shortcode generator.
-
-= Freemius SDK =
-
-* **Source:** [https://freemius.com/](https://freemius.com/)
-* **GitHub:** [https://github.com/Freemius/wordpress-sdk](https://github.com/Freemius/wordpress-sdk)
-* **License:** GPLv3 – [https://github.com/Freemius/wordpress-sdk/blob/master/LICENSE.txt](https://github.com/Freemius/wordpress-sdk/blob/master/LICENSE.txt)
-* **Purpose:** Provides opt-in usage tracking and analytics to help improve the plugin.
-
-= bpl-tools =
-* Source / GitHub: https://github.com/bPlugins/bpl-tools
-* License: GPL-2.0-or-later – https://www.gnu.org/licenses/gpl-2.0.html
-* Purpose: Shared utility library providing admin dashboard components and common Gutenberg editor controls.
-* External Services: The library may connect to bPlugins, WordPress.org, and Freemius services for product data and checkout functionality. See full details: https://github.com/bPlugins/bpl-tools#external-requests--why-they-are-made
