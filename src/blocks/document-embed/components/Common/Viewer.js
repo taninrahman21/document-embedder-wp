@@ -237,7 +237,7 @@ const Viewer = ({ attributes, userData = {}, pluginUrl = "", postId = 0, id = ""
       );
     }
 
-    if (["ppt", "pptx", "xls", "xlsx", "doc", "docx"].includes(ext)) {
+    if (["ppt", "pptx", "xls", "xlsx", "doc", "docx", "txt", "pages", "xps", "ai", "psd", "eps", "dxf", "ttf", "zip", "rar"].includes(ext)) {
       return (
         <div style={{ width: "100%", height: "100%", position: "relative" }}>
           <iframe
