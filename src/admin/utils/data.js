@@ -60,7 +60,7 @@ export const dashboardInfo = (info) => {
     licenseActiveNonce,
     changelogs: [
       {
-        version: "2.2.0 - 18 June 2026",
+        version: "2.2.0 - 21 June 2026",
         list: [
           "**New:** Added brand new Custom PDF.js Viewer option, enabling high-performance local rendering for PDF files.",
           "**New:** Fully redesigned responsive document block architecture, engineered with modular layout blocks and premium modern aesthetics.",

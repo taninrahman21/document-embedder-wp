@@ -303,7 +303,7 @@ Please report security bugs found in the source code of the Document Embedder pl
 
 == Changelog ==
 
-= 2.2.0 - 18 June 2026 =
+= 2.2.0 - 21 June 2026 =
 * **New:** Added brand new Custom PDF.js Viewer option, enabling high-performance local rendering for PDF files.
 * **New:** Fully redesigned responsive document block architecture, engineered with modular layout blocks and premium modern aesthetics.
 * **Update:** Unified shortcode rendering engine under the block's reactive component system, optimizing memory usage and ensuring 100% style and behavior alignment.
