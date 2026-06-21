@@ -2,22 +2,21 @@
 # This file is distributed under the GPLv2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Document Embedder 2.1.2\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/document-emberdder-free\n"
+"Project-Id-Version: Document Embedder – Embed PDFs, Word, Excel, and Other Files 2.2.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/document-emberdder\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-01T10:06:03+00:00\n"
+"POT-Creation-Date: 2026-06-21T04:43:55+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: document-emberdder\n"
 
 #. Plugin Name of the plugin
 #: document-embedder.php
-#: includes/core/class-bplde-ppt-viewer.php:45
-msgid "Document Embedder"
+msgid "Document Embedder – Embed PDFs, Word, Excel, and Other Files"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -74,6 +73,7 @@ msgid "General"
 msgstr ""
 
 #: includes/admin/class-bplde-metabox-free.php:36
+#: src/blocks/document-embed/components/Backend/DocumentSource.js:51
 msgid "Document File"
 msgstr ""
 
@@ -105,36 +105,43 @@ msgstr ""
 msgid "Height (Mobile)"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:101
-msgid "Display File Name at the Top"
+#: includes/admin/class-bplde-metabox-free.php:99
+msgid "Custom PDF Viewer Engine"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:106
-msgid "Beautiful Lightbox View Overlay"
-msgstr ""
-
-#: includes/admin/class-bplde-metabox-free.php:107
-msgid "Dropbox & Google Drive Cloud Picker Integration"
-msgstr ""
-
-#: includes/admin/class-bplde-metabox-free.php:108
+#: includes/admin/class-bplde-metabox-free.php:100
 msgid "Professional Document Loading Icon"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:109
+#: includes/admin/class-bplde-metabox-free.php:101
 msgid "Disable Popout to Prevent Direct File Theft"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:110
+#: includes/admin/class-bplde-metabox-free.php:102
+msgid "Dropbox & Google Drive Cloud Picker Integration"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:103
 msgid "High-Fidelity Microsoft Office Online Viewer"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:111
+#: includes/admin/class-bplde-metabox-free.php:104
 msgid "Native Video & Image Support in Viewer"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:117
-msgid "Download Management"
+#: includes/admin/class-bplde-metabox-free.php:110
+#: src/blocks/document-embed/components/Backend/Toolbar.js:45
+msgid "Toolbar"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:115
+#: src/blocks/document-embed/components/Backend/Toolbar.js:52
+msgid "Display File Name"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:116
+#: src/blocks/document-embed/components/Backend/Toolbar.js:55
+msgid "Enable to display the document name. Not available for Google Drive and Dropbox."
 msgstr ""
 
 #: includes/admin/class-bplde-metabox-free.php:122
@@ -142,63 +149,105 @@ msgid "Show Download Button"
 msgstr ""
 
 #: includes/admin/class-bplde-metabox-free.php:123
-msgid "Not available for Google Drive and Dropbox"
+#: src/blocks/document-embed/components/Backend/Toolbar.js:63
+msgid "Enable to show a download button for the document. Not available for Google Drive and Dropbox."
 msgstr ""
 
 #: includes/admin/class-bplde-metabox-free.php:129
+#: src/blocks/document-embed/components/Backend/Toolbar.js:69
+msgid "Toolbar Position"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:134
+msgid "Choose where the toolbar appears."
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:138
+msgid "Dark / Light / Custom Toolbar Themes"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:139
+msgid "Custom Toolbar Background & Text Colors"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:145
+#: src/blocks/document-embed/components/Backend/Lightbox.js:28
+#: src/blocks/document-embed/components/Backend/Lightbox.js:35
+msgid "Modal Pop Up (Lightbox)"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:148
+msgid "Beautiful Lightbox View Overlay (Open document in modal popup)"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:149
+msgid "Custom Lightbox Trigger Button (Text, Colors, and Sizes)"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:155
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:45
+msgid "Download Management"
+msgstr ""
+
+#: includes/admin/class-bplde-metabox-free.php:160
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:52
 msgid "Download Button Text"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:136
-msgid "Download Position"
+#: includes/admin/class-bplde-metabox-free.php:162
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:55
+msgid "Specify the text for the download button."
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:147
+#: includes/admin/class-bplde-metabox-free.php:167
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:60
 msgid "Download Behavior"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:158
+#: includes/admin/class-bplde-metabox-free.php:177
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:71
 msgid "Custom Filename"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:159
+#: includes/admin/class-bplde-metabox-free.php:178
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:74
 msgid "Optional custom filename for the download. Note: This will not work if Download Behavior is set to \"Open in New Tab\"."
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:165
+#: includes/admin/class-bplde-metabox-free.php:183
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:79
 msgid "Show Download Count"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:166
+#: includes/admin/class-bplde-metabox-free.php:184
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:82
 msgid "Display the total number of times this document has been downloaded."
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:173
+#: includes/admin/class-bplde-metabox-free.php:190
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:87
 msgid "Download Limit"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:174
+#: includes/admin/class-bplde-metabox-free.php:191
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:91
 msgid "Limit the number of downloads allowed per user IP address."
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:185
+#: includes/admin/class-bplde-metabox-free.php:201
 msgid "Email Gate to Collect Leads before Downloading"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:186
-msgid "Download Access Control by Login Status"
+#: includes/admin/class-bplde-metabox-free.php:202
+msgid "Download Access Control by Login Status / Specific Roles"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:187
-msgid "Restrict Download Access to Specific User Roles"
-msgstr ""
-
-#: includes/admin/class-bplde-metabox-free.php:188
+#: includes/admin/class-bplde-metabox-free.php:203
 #: includes/admin/class-bplde-settings-free.php:41
 msgid "Dedicated Leads Dashboard & Stats Tracking"
 msgstr ""
 
-#: includes/admin/class-bplde-metabox-free.php:189
+#: includes/admin/class-bplde-metabox-free.php:204
 msgid "One-Click Lead Data Export to CSV"
 msgstr ""
 
@@ -246,6 +295,10 @@ msgstr ""
 msgid "Trusted by over 10,000+ WordPress sites."
 msgstr ""
 
+#: includes/core/class-bplde-ppt-viewer.php:45
+msgid "Document Embedder"
+msgstr ""
+
 #: includes/core/class-bplde-ppt-viewer.php:51
 #: includes/core/class-bplde-ppt-viewer.php:52
 msgid "Doc Embedder"
@@ -286,4 +339,155 @@ msgstr ""
 
 #: includes/core/class-bplde-ppt-viewer.php:233
 msgid "Updated"
+msgstr ""
+
+#: src/blocks/document-embed/render.php:90
+msgid "Loading Viewer..."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:51
+msgid "Display & Dimensions"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:57
+msgid "Width"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:68
+msgid "Set the width of the viewer for tablet."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:68
+msgid "Set the width of the viewer for mobile."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:68
+msgid "Set the width of the viewer for desktop."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:72
+msgid "Height"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:83
+msgid "Set the height of the viewer for tablet."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:83
+msgid "Set the height of the viewer for mobile."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DisplayDimension.js:83
+msgid "Set the height of the viewer for desktop."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DocumentSource.js:44
+msgid "Document Source"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DocumentSource.js:73
+msgid "Enter URL or upload file"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DocumentSource.js:77
+msgid "Embedding files from Google Drive or Dropbox is available in the Premium version."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DocumentSource.js:83
+msgid "Custom PDF viewer engine option is available in the Premium version."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:63
+msgid "Force Save Dialog"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:64
+msgid "Open in New Tab"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/DownloadManagement.js:95
+msgid "Email Gate to collect leads and Download Access Restrictions are available in the Premium version."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/Lightbox.js:36
+msgid "Display the document in a beautiful modal popup (lightbox) when a button is clicked instead of embedding it directly on the page."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/SecurityRestriction.js:27
+#: src/blocks/document-embed/components/Backend/SecurityRestriction.js:34
+msgid "Security & Restrictions"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/SecurityRestriction.js:35
+msgid "Protect your files by disabling the popout option to prevent direct file theft and enable a professional loading icon."
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/Toolbar.js:60
+msgid "Enable Download Button"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/Toolbar.js:72
+msgid "Toolbar (Default)"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/Toolbar.js:73
+msgid "Below Embed"
+msgstr ""
+
+#: src/blocks/document-embed/components/Backend/Toolbar.js:80
+msgid "Toolbar themes (Dark, Light, Custom) and custom colors are available in the Premium version."
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:13
+msgid "Select Document"
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:15
+msgid "Use this document"
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:51
+msgid "Document Embedder Placeholder"
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:54
+msgid "Upload a document file or select one from your media library."
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:58
+msgid "Choose/Upload File"
+msgstr ""
+
+#: src/blocks/document-embed/edit.js:63
+msgid "Or paste Document URL..."
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block title"
+msgid "Document Embed"
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block description"
+msgid "Embed documents (PDF, Word, Excel, PowerPoint) using WordPress Gutenberg Block."
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block keyword"
+msgid "Document"
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block keyword"
+msgid "PDF"
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block keyword"
+msgid "Embed"
+msgstr ""
+
+#: src/blocks/document-embed/block.json
+msgctxt "block keyword"
+msgid "Viewer"
 msgstr ""
